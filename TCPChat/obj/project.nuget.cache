@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "8HjUmzRUOBg203Iz8hGtm/m9wBULoOZEqYtX3L900eEqlJ1fZsHDeoLiFAdGQkbFK2+JH5x0zQd/S31Ul8AT6w==",
+  "success": true,
+  "projectFilePath": "D:\\SEM2 Basic network programming\\TCPChatUpgrade\\TCPChat\\TCPChat.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\21522\\.nuget\\packages\\supersimpletcp\\3.0.14\\supersimpletcp.3.0.14.nupkg.sha512"
+  ],
+  "logs": []
+}
