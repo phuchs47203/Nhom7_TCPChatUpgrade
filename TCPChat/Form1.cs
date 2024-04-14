@@ -1,11 +1,13 @@
 ﻿using SuperSimpleTcp;
 using System.Text;
+using System.Windows.Forms;
 
 namespace TCPChat
 {
     public partial class Form1 : Form
     {
         SimpleTcpClient tcpClient;
+        private string selectImageString;
         public Form1()
         {
             InitializeComponent();
@@ -31,10 +33,35 @@ namespace TCPChat
             // kieemr tra xem đã kết nôi chauw thì mới gửi được tin nhắn
             if (tcpClient.IsConnected)
             {
+                if (txtInput.Text.StartsWith("[Image]") && selectImageString != null)
+                {
+                    Image image = Image.FromFile(selectImageString);
+                    tcpClient.Send(selectImageString);
+
+                    Bitmap myBitmap = new Bitmap(selectImageString);
+
+                    AddImageToDisplayChat(myBitmap);
+                    AddTextToDisplayChat("You: ");
+
+
+                    txtInput.Clear();
+
+
+                    DisplayChat.ScrollToCaret();
+
+                    // restore the editing capability of the textbox
+                    txtInput.ReadOnly = false;
+                    selectImageString = null;
+                    return;
+                }
                 tcpClient.Send(txtInput.Text);
                 DisplayChat.SelectionAlignment = HorizontalAlignment.Right;
-                DisplayChat.Text += $"You: {txtInput.Text}{Environment.NewLine}";
+                AddTextToDisplayChat($"You: {txtInput.Text}");
+                /*    DisplayChat.Text += $"You: {txtInput.Text}{Environment.NewLine}";
+                */
                 txtInput.Text = string.Empty;
+                DisplayChat.AppendText(Environment.NewLine);
+
             }
         }
 
@@ -81,8 +108,9 @@ namespace TCPChat
 
                 if (DisplayChat.CanPaste(myFormat))
                 {
-                    DisplayChat.SelectionAlignment = HorizontalAlignment.Left;
-                    /*                    DisplayChat.SelectionAlignment = HorizontalAlignment.Right : HorizontalAlignment.Left;
+
+/*                    DisplayChat.SelectionAlignment = HorizontalAlignment.Left;
+*/                    /*                    DisplayChat.SelectionAlignment = HorizontalAlignment.Right : HorizontalAlignment.Left;
                     */
                     DisplayChat.Paste(myFormat);
                 }
@@ -91,13 +119,28 @@ namespace TCPChat
                 DisplayChat.ReadOnly = true;
             }));
             DisplayChat.AppendText(Environment.NewLine);
+            DisplayChat.AppendText(Environment.NewLine);
 
+
+        }
+        private void AddTextToDisplayChat(String mesage)
+        {
+            DisplayChat.Invoke((MethodInvoker)(() =>
+            {
+                DisplayChat.AppendText("  ");
+                DisplayChat.AppendText(" " + mesage + " ");
+                DisplayChat.AppendText(Environment.NewLine);
+                DisplayChat.AppendText(Environment.NewLine);
+
+            }
+            ));
         }
         private void Events_Disconnected(object? sender, ConnectionEventArgs e)
         {
             this.Invoke((MethodInvoker)delegate
             {
-                DisplayChat.Text += $"Disconnencted.{Environment.NewLine}";
+                AddTextToDisplayChat($"Disconnencted.");
+
             });
         }
 
@@ -113,29 +156,41 @@ namespace TCPChat
                     Image image = Image.FromFile(dataString);
 
                     Bitmap myBitmap = new Bitmap(image);
-                    AddImageToDisplayChat(myBitmap);
 
+                    AddImageToDisplayChat(myBitmap);
+                    AddTextToDisplayChat("Server: ");
 
                     DisplayChat.ScrollToCaret();
 
                     return;
                 }
                 DisplayChat.SelectionAlignment = HorizontalAlignment.Left;
-                DisplayChat.Text += $"Server: {Encoding.UTF8.GetString(e.Data)}{Environment.NewLine}";
-            });
+                AddTextToDisplayChat($"Server: {Encoding.UTF8.GetString(e.Data)}");
+
+/*                DisplayChat.Text += $"Server: {Encoding.UTF8.GetString(e.Data)}{Environment.NewLine}";
+*/            });
         }
 
         private void Events_Connected(object? sender, ConnectionEventArgs e)
         {
             this.Invoke((MethodInvoker)delegate
             {
-                DisplayChat.Text += $"Connect Successfully.{Environment.NewLine}";
+                AddTextToDisplayChat("Connect Successfully.");
             });
         }
 
         private void btnChoosseImage_Click(object sender, EventArgs e)
         {
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            fileDialog.Title = "Select image";
+            fileDialog.Filter = "Image Files (*.bmp;*.jpg;*.jpeg,*.png)|*.BMP;*.JPG;*.JPEG;*.PNG";
+            if (fileDialog.ShowDialog() == DialogResult.OK)
+            {
+                txtInput.Text = $"[Image] {fileDialog.SafeFileName}";
+                txtInput.ReadOnly = true;
 
+                selectImageString = fileDialog.FileName;
+            }
         }
     }
 }

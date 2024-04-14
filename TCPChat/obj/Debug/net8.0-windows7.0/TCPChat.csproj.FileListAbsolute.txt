@@ -37,3 +37,4 @@ D:\SEM2 Basic network programming\TCPChatUpgrade\TCPChat\obj\Debug\net8.0-window
 D:\SEM2 Basic network programming\TCPChatUpgrade\TCPChat\obj\Debug\net8.0-windows7.0\TCPChat.pdb
 D:\SEM2 Basic network programming\TCPChatUpgrade\TCPChat\obj\Debug\net8.0-windows7.0\TCPChat.genruntimeconfig.cache
 D:\SEM2 Basic network programming\TCPChatUpgrade\TCPChat\obj\Debug\net8.0-windows7.0\ref\TCPChat.dll
+D:\SEM2 Basic network programming\TCPChatUpgrade\TCPChat\obj\Debug\net8.0-windows7.0\TCPChat.sourcelink.json

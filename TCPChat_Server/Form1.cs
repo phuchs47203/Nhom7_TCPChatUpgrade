@@ -36,7 +36,23 @@ namespace TCPChat_Server
 
             this.Invoke((MethodInvoker)delegate
             {
-                DisplayChat.SelectionAlignment = HorizontalAlignment.Right;
+                string dataString = Encoding.UTF8.GetString(e.Data);
+
+                if (dataString.StartsWith("D:\\"))
+                {
+                    Image image = Image.FromFile(dataString);
+
+                    Bitmap myBitmap = new Bitmap(image);
+
+                    AddImageToDisplayChat(myBitmap);
+                    DisplayChat.Text += $"{e.IpPort}: {Environment.NewLine}";
+
+
+
+                    DisplayChat.ScrollToCaret();
+
+                    return;
+                }
                 // lấy dữ liệu nhận được bỏ vào ô text
                 DisplayChat.Text += $"{e.IpPort}: {Encoding.UTF8.GetString(e.Data)}{Environment.NewLine}";
             });
@@ -81,7 +97,10 @@ namespace TCPChat_Server
                         server.Send(lstClientConnted.SelectedItem.ToString(), selectImageString);
 
                         Bitmap myBitmap = new Bitmap(selectImageString);
+
                         AddImageToDisplayChat(myBitmap);
+                        DisplayChat.Text += $"You: {Environment.NewLine}";
+
 
                         txtInput.Clear();
 
@@ -102,6 +121,8 @@ namespace TCPChat_Server
                     DisplayChat.Text += $"Server: {txtInput.Text}{Environment.NewLine}";
                     // gửi thành công thì xóa dữ liệu trong ô nhập
                     txtInput.Text = string.Empty;
+                    DisplayChat.AppendText(Environment.NewLine);
+
                 }
             }
         }
@@ -109,7 +130,6 @@ namespace TCPChat_Server
         {
             DisplayChat.Invoke((MethodInvoker)(() =>
             {
-                DisplayChat.Text += $"Server: {Environment.NewLine}";
                 int maxWidth = 150;
                 int maxHeight = 150;
 
@@ -139,15 +159,15 @@ namespace TCPChat_Server
 
                 if (DisplayChat.CanPaste(myFormat))
                 {
-                    DisplayChat.SelectionAlignment = HorizontalAlignment.Right;
-                    /*                    DisplayChat.SelectionAlignment = HorizontalAlignment.Right : HorizontalAlignment.Left;
+/*                    DisplayChat.SelectionAlignment = HorizontalAlignment.Right;
+*/                    /*                    DisplayChat.SelectionAlignment = HorizontalAlignment.Right : HorizontalAlignment.Left;
                     */
                     DisplayChat.Paste(myFormat);
                 }
-
                 // disable editing again
                 DisplayChat.ReadOnly = true;
             }));
+            DisplayChat.AppendText(Environment.NewLine);
             DisplayChat.AppendText(Environment.NewLine);
             
         }

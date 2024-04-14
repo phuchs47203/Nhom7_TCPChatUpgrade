@@ -62,7 +62,7 @@
             // txtInput
             // 
             txtInput.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtInput.Location = new Point(123, 417);
+            txtInput.Location = new Point(119, 566);
             txtInput.Name = "txtInput";
             txtInput.Size = new Size(516, 25);
             txtInput.TabIndex = 4;
@@ -71,7 +71,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(24, 422);
+            label2.Location = new Point(20, 571);
             label2.Name = "label2";
             label2.Size = new Size(102, 15);
             label2.TabIndex = 3;
@@ -91,7 +91,7 @@
             // btnSend
             // 
             btnSend.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSend.Location = new Point(645, 413);
+            btnSend.Location = new Point(641, 562);
             btnSend.Name = "btnSend";
             btnSend.Size = new Size(75, 31);
             btnSend.TabIndex = 6;
@@ -105,7 +105,7 @@
             lstClientConnted.ItemHeight = 15;
             lstClientConnted.Location = new Point(671, 105);
             lstClientConnted.Name = "lstClientConnted";
-            lstClientConnted.Size = new Size(247, 259);
+            lstClientConnted.Size = new Size(247, 424);
             lstClientConnted.TabIndex = 7;
             // 
             // label3
@@ -121,7 +121,7 @@
             // btnChooseImage
             // 
             btnChooseImage.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnChooseImage.Location = new Point(24, 386);
+            btnChooseImage.Location = new Point(20, 535);
             btnChooseImage.Name = "btnChooseImage";
             btnChooseImage.Size = new Size(93, 28);
             btnChooseImage.TabIndex = 9;
@@ -132,7 +132,7 @@
             // button2
             // 
             button2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.Location = new Point(123, 389);
+            button2.Location = new Point(119, 538);
             button2.Name = "button2";
             button2.Size = new Size(47, 23);
             button2.TabIndex = 10;
@@ -141,9 +141,9 @@
             // 
             // DisplayChat
             // 
-            DisplayChat.Location = new Point(130, 90);
+            DisplayChat.Location = new Point(126, 87);
             DisplayChat.Name = "DisplayChat";
-            DisplayChat.Size = new Size(509, 293);
+            DisplayChat.Size = new Size(509, 445);
             DisplayChat.TabIndex = 11;
             DisplayChat.Text = "";
             // 
@@ -151,7 +151,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(944, 469);
+            ClientSize = new Size(944, 605);
             Controls.Add(DisplayChat);
             Controls.Add(button2);
             Controls.Add(btnChooseImage);
