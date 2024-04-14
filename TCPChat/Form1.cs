@@ -40,6 +40,8 @@ namespace TCPChat
 
                     Bitmap myBitmap = new Bitmap(selectImageString);
 
+                    DisplayChat.SelectionAlignment = HorizontalAlignment.Right;
+
                     AddImageToDisplayChat(myBitmap);
                     AddTextToDisplayChat("You: ");
 
@@ -156,6 +158,8 @@ namespace TCPChat
                     Image image = Image.FromFile(dataString);
 
                     Bitmap myBitmap = new Bitmap(image);
+
+                    DisplayChat.SelectionAlignment = HorizontalAlignment.Left;
 
                     AddImageToDisplayChat(myBitmap);
                     AddTextToDisplayChat("Server: ");

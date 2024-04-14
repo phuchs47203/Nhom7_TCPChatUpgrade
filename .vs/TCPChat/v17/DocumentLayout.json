@@ -1,12 +1,86 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\SEM2 Basic network programming\\TCPChatUpgrade\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{84349D45-4101-44E5-BC7D-592F625E2C50}|TCPChat_Server\\TCPChat_Server.csproj|d:\\sem2 basic network programming\\tcpchatupgrade\\tcpchat_server\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84349D45-4101-44E5-BC7D-592F625E2C50}|TCPChat_Server\\TCPChat_Server.csproj|solutionrelative:tcpchat_server\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84349D45-4101-44E5-BC7D-592F625E2C50}|TCPChat_Server\\TCPChat_Server.csproj|d:\\sem2 basic network programming\\tcpchatupgrade\\tcpchat_server\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{84349D45-4101-44E5-BC7D-592F625E2C50}|TCPChat_Server\\TCPChat_Server.csproj|solutionrelative:tcpchat_server\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC3E5EFC-0340-4E0D-9E46-F1B74FE2A117}|TCPChat\\TCPChat.csproj|d:\\sem2 basic network programming\\tcpchatupgrade\\tcpchat\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC3E5EFC-0340-4E0D-9E46-F1B74FE2A117}|TCPChat\\TCPChat.csproj|solutionrelative:tcpchat\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC3E5EFC-0340-4E0D-9E46-F1B74FE2A117}|TCPChat\\TCPChat.csproj|d:\\sem2 basic network programming\\tcpchatupgrade\\tcpchat\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{EC3E5EFC-0340-4E0D-9E46-F1B74FE2A117}|TCPChat\\TCPChat.csproj|solutionrelative:tcpchat\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "D:\\SEM2 Basic network programming\\TCPChatUpgrade\\TCPChat_Server\\Form1.cs",
+              "RelativeDocumentMoniker": "TCPChat_Server\\Form1.cs",
+              "ToolTip": "D:\\SEM2 Basic network programming\\TCPChatUpgrade\\TCPChat_Server\\Form1.cs",
+              "RelativeToolTip": "TCPChat_Server\\Form1.cs",
+              "ViewState": "AQIAAKMAAAAAAAAAAAAqwHsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T04:58:55.531Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "D:\\SEM2 Basic network programming\\TCPChatUpgrade\\TCPChat\\Form1.cs",
+              "RelativeDocumentMoniker": "TCPChat\\Form1.cs",
+              "ToolTip": "D:\\SEM2 Basic network programming\\TCPChatUpgrade\\TCPChat\\Form1.cs",
+              "RelativeToolTip": "TCPChat\\Form1.cs",
+              "ViewState": "AQIAABsAAAAAAAAAAAAUwC4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T05:07:41.896Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "D:\\SEM2 Basic network programming\\TCPChatUpgrade\\TCPChat\\Form1.cs",
+              "RelativeDocumentMoniker": "TCPChat\\Form1.cs",
+              "ToolTip": "D:\\SEM2 Basic network programming\\TCPChatUpgrade\\TCPChat\\Form1.cs [Design]",
+              "RelativeToolTip": "TCPChat\\Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T05:13:31.757Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "D:\\SEM2 Basic network programming\\TCPChatUpgrade\\TCPChat_Server\\Form1.cs",
+              "RelativeDocumentMoniker": "TCPChat_Server\\Form1.cs",
+              "ToolTip": "D:\\SEM2 Basic network programming\\TCPChatUpgrade\\TCPChat_Server\\Form1.cs [Design]",
+              "RelativeToolTip": "TCPChat_Server\\Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T04:58:44.479Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

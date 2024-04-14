@@ -17,7 +17,10 @@ namespace TCPChat_Server
         private void btnStart_Click(object sender, EventArgs e)
         {
             server.Start();
-            DisplayChat.Text += $"Server is running...{Environment.NewLine}";
+            AddTextToDisplayChat($"Server is running...");
+
+/*            DisplayChat.Text += $"Server is running...{Environment.NewLine}";
+*/            
             btnStart.Enabled = false;
             btnSend.Enabled = true;
         }
@@ -30,7 +33,18 @@ namespace TCPChat_Server
             server.Events.ClientDisconnected += Events_ClientDisconnected;
             server.Events.DataReceived += Events_DataReceived;
         }
+        private void AddTextToDisplayChat(String mesage)
+        {
+            DisplayChat.Invoke((MethodInvoker)(() =>
+            {
+                DisplayChat.AppendText("  ");
+                DisplayChat.AppendText(" " + mesage + " ");
+                DisplayChat.AppendText(Environment.NewLine);
+                DisplayChat.AppendText(Environment.NewLine);
 
+            }
+            ));
+        }
         private void Events_DataReceived(object? sender, DataReceivedEventArgs e)
         {
 
@@ -43,10 +57,14 @@ namespace TCPChat_Server
                     Image image = Image.FromFile(dataString);
 
                     Bitmap myBitmap = new Bitmap(image);
+                    DisplayChat.SelectionAlignment = HorizontalAlignment.Left;
 
                     AddImageToDisplayChat(myBitmap);
-                    DisplayChat.Text += $"{e.IpPort}: {Environment.NewLine}";
 
+                    AddTextToDisplayChat($"{e.IpPort}: ");
+
+/*                    DisplayChat.Text += $"{e.IpPort}: {Environment.NewLine}";
+*/
 
 
                     DisplayChat.ScrollToCaret();
@@ -54,17 +72,21 @@ namespace TCPChat_Server
                     return;
                 }
                 // lấy dữ liệu nhận được bỏ vào ô text
-                DisplayChat.Text += $"{e.IpPort}: {Encoding.UTF8.GetString(e.Data)}{Environment.NewLine}";
-            });
+                DisplayChat.SelectionAlignment = HorizontalAlignment.Left;
+                AddTextToDisplayChat($"{e.IpPort}: {Encoding.UTF8.GetString(e.Data)}");
+/*                DisplayChat.Text += $"{e.IpPort}: {Encoding.UTF8.GetString(e.Data)}{Environment.NewLine}";
+*/            });
         }
 
         private void Events_ClientDisconnected(object? sender, ConnectionEventArgs e)
         {
             this.Invoke((MethodInvoker)delegate
             {
-                // hiện log
-                DisplayChat.Text += $"{e.IpPort} disconnected.{Environment.NewLine}";
 
+                AddTextToDisplayChat($"{e.IpPort} disconnected.");
+
+/*                DisplayChat.Text += $"{e.IpPort} disconnected.{Environment.NewLine}";
+*/
                 // xóa địa chỉ ip hiển thị khi không kết nối đến đó
                 lstClientConnted.Items.Remove(e.IpPort);
             });
@@ -75,10 +97,10 @@ namespace TCPChat_Server
         {
             this.Invoke((MethodInvoker)delegate
             {
-                // hiện log
-                DisplayChat.Text += $"{e.IpPort} connected.{Environment.NewLine}";
+                AddTextToDisplayChat($"{e.IpPort} connected.");
 
-                // xóa địa chỉ ip hiển thị khi không kết nối đến đó
+/*                DisplayChat.Text += $"{e.IpPort} connected.{Environment.NewLine}";
+*/
                 lstClientConnted.Items.Add(e.IpPort);
             });
 
@@ -98,9 +120,14 @@ namespace TCPChat_Server
 
                         Bitmap myBitmap = new Bitmap(selectImageString);
 
-                        AddImageToDisplayChat(myBitmap);
-                        DisplayChat.Text += $"You: {Environment.NewLine}";
+                        DisplayChat.SelectionAlignment = HorizontalAlignment.Right;
 
+                        AddImageToDisplayChat(myBitmap);
+
+                        AddTextToDisplayChat("You: ");
+
+/*                        DisplayChat.Text += $"You: {Environment.NewLine}";
+*/
 
                         txtInput.Clear();
 
@@ -118,8 +145,10 @@ namespace TCPChat_Server
                    
                     DisplayChat.SelectionAlignment = HorizontalAlignment.Right;
 
-                    DisplayChat.Text += $"Server: {txtInput.Text}{Environment.NewLine}";
-                    // gửi thành công thì xóa dữ liệu trong ô nhập
+                    AddTextToDisplayChat($"You: {txtInput.Text}");
+
+/*                    DisplayChat.Text += $"Server: {txtInput.Text}{Environment.NewLine}";
+*/                    // gửi thành công thì xóa dữ liệu trong ô nhập
                     txtInput.Text = string.Empty;
                     DisplayChat.AppendText(Environment.NewLine);
 

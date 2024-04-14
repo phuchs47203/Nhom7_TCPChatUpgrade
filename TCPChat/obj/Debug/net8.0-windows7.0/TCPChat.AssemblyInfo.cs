@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TCPChat")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+aa7b25ac197dc2a726e610522821b8bf296fc015")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7ede8d724a355e01f9c04eb6c86161f8f5e21ea0")]
 [assembly: System.Reflection.AssemblyProductAttribute("TCPChat")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TCPChat")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
